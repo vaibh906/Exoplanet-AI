@@ -1,0 +1,45 @@
+.footer {
+  margin-top: 80px;
+  padding: 40px 20px;
+  background: rgba(5, 8, 22, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.footer h2 {
+  color: #4fc3ff;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.footer p {
+  color: #d0d8e8;
+  line-height: 1.8;
+  margin: 10px 0;
+}
+
+.footer-copy {
+  margin-top: 25px;
+  color: #8fa7c4;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 15px;
+  }
+
+  .footer h2 {
+    font-size: 1.6rem;
+  }
+
+  .footer p {
+    font-size: 0.95rem;
+  }
+}

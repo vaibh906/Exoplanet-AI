@@ -1,0 +1,210 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 80px 8%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(79, 195, 255, 0.12), transparent 65%);
+  z-index: 0;
+}
+
+.hero-content {
+  flex: 1;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(79, 195, 255, 0.15);
+  color: #4fc3ff;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  border: 1px solid rgba(79, 195, 255, 0.35);
+}
+
+.hero h1 {
+  font-size: 3.8rem;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: #4fc3ff;
+}
+
+.hero p {
+  max-width: 650px;
+  font-size: 1.1rem;
+  color: #cfd8e6;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-image {
+  flex: 1;
+  position: relative;
+  height: 550px;
+}
+
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 5s ease-in-out infinite;
+}
+
+.planet-1 {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle at 30% 30%, #74d8ff, #2358ff);
+  top: 80px;
+  right: 120px;
+  box-shadow: 0 0 60px rgba(79, 195, 255, 0.4);
+}
+
+.planet-2 {
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle at 30% 30%, #ffdd66, #ff8c00);
+  bottom: 100px;
+  left: 100px;
+}
+
+.orbit {
+  position: absolute;
+  border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+}
+
+.orbit-1 {
+  width: 340px;
+  height: 340px;
+  top: 20px;
+  right: 60px;
+}
+
+.orbit-2 {
+  width: 470px;
+  height: 470px;
+  top: -45px;
+  right: -5px;
+}
+
+.star {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  animation: blink 2s infinite;
+}
+
+.star-1 {
+  top: 40px;
+  left: 100px;
+}
+
+.star-2 {
+  top: 160px;
+  right: 40px;
+}
+
+.star-3 {
+  bottom: 90px;
+  right: 240px;
+}
+
+.star-4 {
+  bottom: 40px;
+  left: 220px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes blink {
+  0%,100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .2;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero p {
+    margin: auto;
+    margin-bottom: 40px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 450px;
+  }
+
+  .planet-1 {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .planet-1 {
+    width: 170px;
+    height: 170px;
+  }
+
+  .orbit-1 {
+    width: 260px;
+    height: 260px;
+  }
+
+  .orbit-2 {
+    width: 340px;
+    height: 340px;
+  }
+}
