@@ -111,3 +111,44 @@
     font-size: 0.9rem;
   }
 }
+
+/* Prediction Badges */
+
+.prediction-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Confirmed */
+
+.prediction-badge.confirmed {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+
+/* Candidate */
+
+.prediction-badge.candidate {
+  background: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+  border: 1px solid #f1c40f;
+}
+
+/* False Positive */
+
+.prediction-badge.false-positive {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+}

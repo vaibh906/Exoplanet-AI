@@ -11,12 +11,41 @@ function Dashboard() {
       <main className="dashboard">
 
         <section className="dashboard-header">
-          <h1>🚀 AI Exoplanet Detection Dashboard</h1>
-          <p>
-            Upload a Kepler light curve dataset and let the trained AI model
-            predict whether an exoplanet is present.
-          </p>
-        </section>
+  <div className="dashboard-title">
+
+    <h1>🛰 AI Exoplanet Mission Control</h1>
+
+    <p>
+      Intelligent exoplanet classification platform powered by
+      NASA Kepler observations and a Random Forest machine learning model.
+    </p>
+
+  </div>
+
+  <div className="system-status">
+
+    <div className="status-card">
+      <span>🟢</span>
+      <p>Model Loaded</p>
+    </div>
+
+    <div className="status-card">
+      <span>🟢</span>
+      <p>Backend Online</p>
+    </div>
+
+    <div className="status-card">
+      <span>🟢</span>
+      <p>API Connected</p>
+    </div>
+
+    <div className="status-card">
+      <span>🛰</span>
+      <p>Mission Ready</p>
+    </div>
+
+  </div>
+</section>
 
         <section id="analytics">
           <h2>Project Analytics</h2>
@@ -55,4 +84,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Dashboard; 

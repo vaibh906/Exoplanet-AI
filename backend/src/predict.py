@@ -25,14 +25,17 @@ class ExoplanetPredictor:
 
     def predict(self, csv_file):
 
-        data = pd.read_csv(csv_file)
+    data = pd.read_csv(csv_file)
 
-        prediction = self.model.predict(data)
+    prediction = self.model.predict(data)
 
-        prediction = self.encoder.inverse_transform(prediction)
+    prediction = self.encoder.inverse_transform(prediction)
 
-        return prediction
+    result = data.copy()
 
+    result["prediction"] = prediction
+
+    return result.to_dict(orient="records")
 
 if __name__ == "__main__":
 

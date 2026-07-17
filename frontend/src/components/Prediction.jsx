@@ -24,6 +24,7 @@ function Prediction() {
       setError("");
 
       const data = await predictCSV(file);
+      console.log(data.prediction);
 
       setPrediction(data.prediction || []);
     } catch (err) {
@@ -33,44 +34,80 @@ function Prediction() {
     }
   };
 
-  return (
-    <div className="prediction-card">
-      <div className="upload-section">
-        <input
-          type="file"
-          accept=".csv"
-          onChange={handleFileChange}
-        />
+  const confirmed = prediction.filter(
+  (p) => p === "CONFIRMED"
+).length;
 
-        <button
-          className="predict-btn"
-          onClick={handlePredict}
-        >
-          Predict Exoplanets
-        </button>
-      </div>
+const candidate = prediction.filter(
+  (p) => p === "CANDIDATE"
+).length;
 
-      {loading && (
-        <p className="loading">
-          Running AI Prediction...
+const falsePositive = prediction.filter(
+  (p) => p === "FALSE POSITIVE"
+).length;
+
+
+ return (
+  <div className="prediction-card">
+    <div className="upload-section">
+      <input
+        type="file"
+        accept=".csv"
+        onChange={handleFileChange}
+      />
+
+      <button
+        className="predict-btn"
+        onClick={handlePredict}
+      >
+        Predict Exoplanets
+      </button>
+    </div>
+
+    {loading && (
+      <p className="loading">Running AI Prediction...</p>
+    )}
+
+    {error && (
+      <p className="error">{error}</p>
+    )}
+
+    {prediction.length > 0 && (
+      <div className="result-box">
+        <h3>Prediction Results</h3>
+
+        <p className="result-subtitle">
+          AI classification of detected exoplanet candidates
         </p>
-      )}
 
-      {error && (
-        <p className="error">
-          {error}
-        </p>
-      )}
+        <div className="summary-grid">
+          <div className="summary-card confirmed-card">
+            <h4>🟢 Confirmed</h4>
+            <p>{confirmed}</p>
+          </div>
 
-      {prediction.length > 0 && (
-        <div className="result-box">
-          <h3>Prediction Results</h3>
+          <div className="summary-card candidate-card">
+            <h4>🟡 Candidate</h4>
+            <p>{candidate}</p>
+          </div>
 
+          <div className="summary-card false-card">
+            <h4>🔴 False Positive</h4>
+            <p>{falsePositive}</p>
+          </div>
+
+          <div className="summary-card total-card">
+            <h4>📄 Total Records</h4>
+            <p>{prediction.length}</p>
+          </div>
+        </div>
+
+        <div className="table-container">
           <table>
             <thead>
               <tr>
-                <th>Row</th>
-                <th>Prediction</th>
+                <th>#</th>
+                <th>AI Prediction</th>
               </tr>
             </thead>
 
@@ -84,9 +121,10 @@ function Prediction() {
             </tbody>
           </table>
         </div>
-      )}
-    </div>
-  );
+      </div>
+    )}
+  </div>
+);
 }
 
 export default Prediction;
